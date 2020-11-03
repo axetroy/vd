@@ -19,7 +19,7 @@
 
 > 在使用前请先安装 [Deno](https://github.com/denoland/deno) v1.5.x
 
-在终端输入一下命令进行安装
+在终端输入以下命令进行安装
 
 ```bash
 deno install --unstable --allow-read --allow-write --allow-net -f --reload https://github.com/axetroy/vd/raw/master/vd.ts
