@@ -13,31 +13,22 @@ export function sum(...arr: number[]) {
  * @requires {Array<number[]>}
  */
 export function segmenter(total: number, number: number): Array<number[]> {
+  const originTotal = total;
   const averageSize = Math.floor(total / number);
 
-  const array: number[] = [];
+  const result: number[][] = new Array(number);
 
-  while (total > 0) {
-    if (array.length === number - 1) {
-      array.push(total);
-      total -= total;
-      break;
-    }
+  let start = 0;
 
-    if (total > averageSize) {
-      array.push(averageSize);
-      total -= averageSize;
-    } else {
-      array.push(total);
-      total -= total;
-      break;
-    }
+  for (let i = 0; i < number; i++) {
+    const step = Math.min(averageSize, total);
+    const end = i === number - 1 ? originTotal : start + step;
+    result[i] = [start, end];
+    total -= step;
+    start = end + 1;
   }
 
-  return array.map((length, index) => {
-    const prev = sum(...array.slice(0, index));
-    return [prev > 0 ? prev + 1 : prev, prev + length];
-  });
+  return result;
 }
 
 export async function getSizeAndType(
