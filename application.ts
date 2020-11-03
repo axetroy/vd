@@ -4,7 +4,7 @@ import {
   IApplication,
   IDownloader,
   IDownloaderOptions,
-  IExtractor,
+  IExtractor
 } from "./type.ts";
 
 class Application implements IApplication {
@@ -21,6 +21,11 @@ class Application implements IApplication {
     }
 
     const resources = await provider.extract(new URL(url));
+
+    if (resources.streams.length) {
+      console.log("resource not found.");
+      return;
+    }
 
     await this.#downloader.download(resources, options);
 
