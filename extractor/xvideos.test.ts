@@ -20,15 +20,17 @@ Deno.test({
             "https://www.xvideos.com/video57010397/scared_teen_stepsisters_pranked_by_stepbro_during_halloween",
           "streams": [
             {
-              "quality": "High",
+              "quality": "high",
               "url": "",
-              "filename": "57010397_High.mp4",
+              "filename":
+                "Scared_teen_stepsisters_pranked_by_stepbro_during_Halloween.high.mp4",
               "size": 32859382,
             },
             {
-              "quality": "Low",
+              "quality": "low",
               "url": "",
-              "filename": "57010397_Low.mp4",
+              "filename":
+                "Scared_teen_stepsisters_pranked_by_stepbro_during_Halloween.low.mp4",
               "size": 13265856,
             },
           ],

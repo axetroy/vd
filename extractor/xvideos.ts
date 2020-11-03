@@ -1,6 +1,7 @@
 import { by as sortBy } from "https://cdn.skypack.dev/@pabra/sortby?dts";
 import { getVideoFormatFromMineType } from "../extension.ts";
 import { IExtractor } from "../type.ts";
+import { getVideoName } from "../utils.ts";
 
 function extractIdFromURL(url: URL): string {
   const match = url.pathname.match(/^\/video(\d+)\//);
@@ -28,8 +29,10 @@ export default class implements IExtractor {
     const videoID = extractIdFromURL(url);
 
     if (!titleMatcher) {
-      throw new Error("parse error");
+      throw new Error("parse title error");
     }
+
+    const title = titleMatcher[1];
 
     const lowQualityURL = (/\.setVideoUrlLow\('([^\']+)'\)/.exec(html) ||
       [])[1];
@@ -40,11 +43,11 @@ export default class implements IExtractor {
     const streams = await Promise.all(
       [
         {
-          quality: "High",
+          quality: "high",
           url: HighQualityURL,
         },
         {
-          quality: "Low",
+          quality: "low",
           url: lowQualityURL,
         },
       ].map((v) => {
@@ -57,11 +60,13 @@ export default class implements IExtractor {
               return Promise.resolve({
                 ...v,
                 url: v.url,
-                filename: `${videoID}_${v.quality}${
+                filename: getVideoName(
+                  title,
+                  v.quality,
                   getVideoFormatFromMineType(
                     contentType,
-                  )
-                }`,
+                  ) || "",
+                ),
                 size,
               });
             });

@@ -1,7 +1,7 @@
 import { DEFAULT_HEADERS } from "../config.ts";
 import { getVideoFormatFromMineType } from "../extension.ts";
 import { IExtractor } from "../type.ts";
-import { getSizeAndType } from "../utils.ts";
+import { getSizeAndType, getVideoName } from "../utils.ts";
 
 function getPlayerUrl(html: string): URL {
   const matcher = /src="(https:\/\/www\.5dm\.tv\/html5\/h5play\.php\?[^"]+)"/
@@ -69,9 +69,13 @@ export default class implements IExtractor {
       url: url.href,
       streams: [
         {
-          filename: title + "_" + getVideoFormatFromMineType(mineType),
+          filename: getVideoName(
+            title,
+            "unknown",
+            getVideoFormatFromMineType(mineType) || "",
+          ),
           size: size,
-          quality: "Unknown",
+          quality: "unknown",
           url: videoURL.href,
         },
       ],

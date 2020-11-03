@@ -1,6 +1,7 @@
 import { by as sortBy } from "https://cdn.skypack.dev/@pabra/sortby?dts";
 import { getVideoFormatFromMineType } from "../extension.ts";
 import { IExtractor } from "../type.ts";
+import { getVideoName } from "../utils.ts";
 
 interface HaoKanInfo {
   curVideoMeta: {
@@ -35,6 +36,8 @@ export default class implements IExtractor {
 
     const info = JSON.parse(matcher[1]) as HaoKanInfo;
 
+    const title = info.curVideoMeta.title;
+
     const streams = await Promise.all(info.curVideoMeta.clarityUrl.map((v) => {
       return fetch(v.url, { method: "HEAD" })
         .then((res) => {
@@ -43,8 +46,11 @@ export default class implements IExtractor {
           const size = +res.headers.get("content-length")!;
           const contentType = res.headers.get("content-type")!;
           return Promise.resolve({
-            filename: info.curVideoMeta.title + "_" +
-              v.title + getVideoFormatFromMineType(contentType),
+            filename: getVideoName(
+              title,
+              v.title,
+              getVideoFormatFromMineType(contentType) || "",
+            ),
             url: v.url,
             size,
             quality: v.title,
@@ -53,7 +59,7 @@ export default class implements IExtractor {
     }));
 
     return {
-      name: info.curVideoMeta.title,
+      name: title,
       url: url.href,
       streams: streams.sort(sortBy(["size", "desc"])),
     };

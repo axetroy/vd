@@ -31,6 +31,11 @@ export function segmenter(total: number, number: number): Array<number[]> {
   return result;
 }
 
+/**
+ * Get resource type and size
+ * @param url
+ * @param headers
+ */
 export async function getSizeAndType(
   url: URL,
   headers: Headers,
@@ -47,6 +52,18 @@ export async function getSizeAndType(
   return { size, mineType: type };
 }
 
+/**
+ * Cover name to a normal file name
+ * @param name
+ */
 export function nameify(name: string): string {
   return name.replaceAll(/\s+/g, "_");
+}
+
+export function getVideoName(
+  title: string,
+  quality: string,
+  extName: string,
+): string {
+  return `${nameify(title)}.${nameify(quality)}${extName}`;
 }

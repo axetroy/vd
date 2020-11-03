@@ -1,6 +1,7 @@
 import { by as sortBy } from "https://cdn.skypack.dev/@pabra/sortby?dts";
 import { getVideoFormatFromMineType } from "../extension.ts";
 import { IExtractor } from "../type.ts";
+import { getVideoName } from "../utils.ts";
 
 // example: https://cn.pornhub.com/view_video.php?viewkey=ph5aa6dfa915fb6
 export default class implements IExtractor {
@@ -38,10 +39,12 @@ export default class implements IExtractor {
           );
 
           worker.onmessage = (event) => {
+            worker.terminate();
             resolve(event.data);
           };
 
           worker.onerror = (err) => {
+            worker.terminate();
             reject(err);
           };
 
@@ -59,11 +62,13 @@ export default class implements IExtractor {
         return Promise.resolve({
           ...v,
           url: v.url,
-          filename: `${videoID}_${v.quality}${
+          filename: getVideoName(
+            title,
+            v.quality,
             getVideoFormatFromMineType(
               mineType,
-            )
-          }`,
+            ) || "",
+          ),
           size,
         });
       }),

@@ -12,6 +12,7 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       // 禁用测试： 因为在 Github Action 中会触发 Cloudflare 的防火墙，导致无法访问
+      // 这可能是因为防火墙限制了境外 IP
       // {
       //   url: "https://www.5dm.tv/bangumi/dv43066",
       //   expect: {
@@ -21,7 +22,7 @@ Deno.test({
       //       {
       //         quality: "Unknown",
       //         url: "",
-      //         filename: "阿松 第三季【更新至第4集】_.mp4",
+      //         filename: "阿松_第三季【更新至第4集】.unknown.mp4",
       //         size: 335823033,
       //       },
       //     ],

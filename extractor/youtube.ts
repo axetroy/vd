@@ -1,6 +1,7 @@
 import { by as sortBy } from "https://cdn.skypack.dev/@pabra/sortby?dts";
 import { getVideoFormatFromMineType } from "../extension.ts";
 import { IExtractor } from "../type.ts";
+import { getVideoName } from "../utils.ts";
 
 // https://www.youtube.com/watch?v=fEcnrA6RIzo
 export default class implements IExtractor {
@@ -43,24 +44,28 @@ export default class implements IExtractor {
 
     const title = playerResponse.videoDetails.title as string;
 
-    const streams: Array<{
+    interface streamFormat {
       qualityLabel: string; // 480p
       mimeType: string; // video/mp4; codecs="avc1.4d401e"
       contentLength: string;
       url: string;
-    }> = playerResponse.streamingData.adaptiveFormats;
+    }
+
+    const streams: streamFormat[] =
+      playerResponse.streamingData.adaptiveFormats;
 
     return {
       name: title,
       url: url.href,
       streams: streams
         .filter((v) => v.qualityLabel && /^\d+p$/.test(v.qualityLabel))
-        .map((stream) => {
+        .map((stream: streamFormat) => {
           return {
-            filename:
-              `${playerResponse.videoDetails.videoId}_${stream.qualityLabel}${
-                getVideoFormatFromMineType(stream.mimeType)
-              }`,
+            filename: getVideoName(
+              title,
+              stream.qualityLabel,
+              getVideoFormatFromMineType(stream.mimeType) || "",
+            ),
             size: +stream.contentLength,
             quality: stream.qualityLabel,
             url: stream.url,
