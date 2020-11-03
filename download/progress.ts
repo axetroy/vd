@@ -1,4 +1,4 @@
-import { ProgressBar } from "https://deno.land/x/progress@v1.1.4/mod.ts";
+import ProgressBar from "https://deno.land/x/progress@v1.1.4/mod.ts";
 
 export class Progress extends ProgressBar {
   public speed = 0;
