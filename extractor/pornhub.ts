@@ -59,9 +59,11 @@ export default class implements IExtractor {
         return Promise.resolve({
           ...v,
           url: v.url,
-          filename: `${videoID}_${v.quality}${getVideoFormatFromMineType(
-            mineType
-          )}`,
+          filename: `${videoID}_${v.quality}${
+            getVideoFormatFromMineType(
+              mineType,
+            )
+          }`,
           size,
         });
       }),

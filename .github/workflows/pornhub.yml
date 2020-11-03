@@ -1,0 +1,21 @@
+on: [push, pull_request]
+
+name: pornhub
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        deno: ["v1.5.x"]
+        os: [ubuntu-latest]
+    name: PornHub
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Test
+        run: deno test -A ./extractor/pornhub.test.ts
