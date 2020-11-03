@@ -77,7 +77,7 @@ Download complete.
 $ vd "https://www.youtube.com/watch?v=fEcnrA6RIzo"
 # 下载 Bilibili
 $ vd "https://www.bilibili.com/video/BV11K411A7eo"
-# 下载 5md.ts
+# 下载 5md.tv
 $ vd "https://www.5dm.tv/bangumi/dv43066"
 # 下载 haokan.baidu.com
 $ vd "https://haokan.baidu.com/v?vid=13675044210054905324"
