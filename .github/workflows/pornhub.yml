@@ -9,7 +9,7 @@ jobs:
       matrix:
         deno: ["v1.5.x"]
         os: [ubuntu-latest]
-    name: PornHub
+    name: pronhub.com
     steps:
       - uses: actions/checkout@v2
       - name: Setup deno
