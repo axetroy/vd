@@ -1,0 +1,32 @@
+on: [push, pull_request]
+
+name: ci
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        deno: ["v1.5.x"]
+        os: [ubuntu-latest, macOS-latest, windows-latest]
+    name: Deno ${{ matrix.deno }} test in ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Env
+        run: deno --version
+
+      - name: Format
+        if: runner.os != 'Windows'
+        run: deno fmt --check
+
+      - name: Lint
+        if: runner.os != 'Windows'
+        run: deno lint --unstable **/*.ts
+
+      - name: Test
+        run: deno test -A
