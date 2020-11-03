@@ -22,4 +22,4 @@ jobs:
           deno-version: ${{ matrix.deno }}
 
       - name: Test
-        run: deno test -A ./extractor/pornhub.test.ts
+        run: deno test -A --unstable ./extractor/pornhub.test.ts

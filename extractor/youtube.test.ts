@@ -2,6 +2,7 @@ import {
   assert,
   assertEquals,
 } from "https://deno.land/std@0.76.0/testing/asserts.ts";
+import { download } from "../download/mod.ts";
 import { IResource } from "../type.ts";
 import ExtractorYoutube from "./youtube.ts";
 
@@ -84,12 +85,24 @@ Deno.test({
       assertEquals(output.name, test.expect.name);
       assertEquals(output.url, test.expect.url);
 
+      assert(output.streams.length > 1);
+
       output.streams.forEach((stream, index) => {
         assertEquals(stream.filename, test.expect.streams[index].filename);
         assertEquals(stream.size, test.expect.streams[index].size);
         assertEquals(stream.quality, test.expect.streams[index].quality);
         assert(new URL(stream.url).href !== "");
       });
+
+      // try download file
+      const videoPath = await download(
+        new URL(output.streams[output.streams.length - 1].url),
+        "./dist",
+        8,
+        "No_Damage_Escape_From_Steve_With_Knife_Bug_!?.144p.webm",
+      );
+
+      console.log("download filepath:", videoPath);
     }
   },
 });

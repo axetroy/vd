@@ -18,9 +18,9 @@ async function downloadWithMultiThreading(
   console.log(`download with multi-threading: ${threading}`);
   const res = await fetch(url, { method: "HEAD" });
 
-  if (!res.body) {
-    throw new Error("download fail");
-  }
+  res.body?.cancel();
+
+  if (!res.ok) throw new Error("download fail");
 
   const size = +(res.headers.get("content-length") as string);
 
@@ -171,6 +171,8 @@ export async function download(
 ): Promise<string> {
   const res = await fetch(url);
 
+  res.body?.cancel();
+
   if (!res.ok) throw new Error(res.statusText);
 
   const isSupportRangeDownload = res.headers.get("accept-ranges") === "bytes";
@@ -185,7 +187,6 @@ export async function download(
       filename || "",
     );
   } else {
-    fetch(url);
     return downloadWithSingleThreading(url, dir, filename);
   }
 }
