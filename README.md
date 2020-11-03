@@ -6,14 +6,14 @@
 
 支持的站点
 
-| 站点     | URL                      | 说明                                 |
-| -------- | ------------------------ | ------------------------------------ |
-| Youtube  | https://youtube.com      |                                      |
-| Bilibili | https://bilibili.com     | 不支持番剧/电影/集合下载，视频无声音 |
-| 5dm.tv   | https://www.5dm.tv       |                                      |
-| Haokan   | https://haokan.baidu.com |                                      |
-| PornHub  | https://pornhub.com      |                                      |
-| XVideos  | https://xvideos.com      |                                      |
+| 站点     | URL                                                                                                                                     | 说明                                 |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Youtube  | https://youtube.com                                                                                                                     |                                      |
+| Bilibili | https://bilibili.com                                                                                                                    | 不支持番剧/电影/集合下载，视频无声音 |
+| 5dm.tv   | https://www.5dm.tv                                                                                                                      |                                      |
+| Haokan   | https://haokan.baidu.com                                                                                                                |                                      |
+| PornHub  | https://pornhub.com [![Build Status](https://github.com/axetroy/vd/workflows/pornhub/badge.svg)](https://github.com/axetroy/vd/actions) |                                      |
+| XVideos  | https://xvideos.com [![Build Status](https://github.com/axetroy/vd/workflows/xvideos/badge.svg)]                                        |                                      |
 
 ## 安装
 
