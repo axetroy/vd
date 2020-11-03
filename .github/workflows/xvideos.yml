@@ -1,6 +1,10 @@
-on: [push, pull_request]
-
 name: xvideos
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "* 0 * * *"
 
 jobs:
   test:
