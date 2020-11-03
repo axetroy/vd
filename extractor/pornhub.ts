@@ -51,24 +51,18 @@ export default class implements IExtractor {
     }
 
     const streams = await Promise.all(
-      videos.map((v) => {
-        return fetch(v.url, { method: "HEAD" }).then((res) => {
-          const size = Number(res.headers.get("content-length"));
-          const mineType = res.headers.get("content-type") as string;
-
-          return res.body!.cancel()
-            .then(() => {
-              return Promise.resolve({
-                ...v,
-                url: v.url,
-                filename: `${videoID}_${v.quality}${
-                  getVideoFormatFromMineType(
-                    mineType,
-                  )
-                }`,
-                size,
-              });
-            });
+      videos.map(async (v) => {
+        const res = await fetch(v.url, { method: "HEAD" });
+        const size = Number(res.headers.get("content-length"));
+        const mineType = (res.headers.get("content-type") as string);
+        await res.body!.cancel();
+        return Promise.resolve({
+          ...v,
+          url: v.url,
+          filename: `${videoID}_${v.quality}${getVideoFormatFromMineType(
+            mineType
+          )}`,
+          size,
         });
       }),
     );
