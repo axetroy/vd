@@ -55,3 +55,7 @@ export async function getSizeAndType(
 
   return { size, mineType: type };
 }
+
+export function nameify(name: string): string {
+  return name.replaceAll(/\s+/g, "_");
+}

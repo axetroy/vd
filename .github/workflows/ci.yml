@@ -31,3 +31,7 @@ jobs:
       - name: Lint
         if: runner.os != 'Windows'
         run: deno lint --unstable **/*.ts
+
+      - name: Test
+        run: |
+          deno test -A --unstable ./utils.test.ts
