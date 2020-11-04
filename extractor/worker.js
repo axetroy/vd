@@ -1,10 +1,4 @@
-// deno-lint-ignore-file ban-ts-comment
-interface IEvent extends Event {
-  data: string;
-}
-
-// @ts-expect-error
-globalThis.addEventListener("message", (event: IEvent) => {
+globalThis.addEventListener("message", (event) => {
   const code = event.data;
   try {
     eval(`var playerObjList = {};` + code.replace(/var\s+/g, "globalThis."));
@@ -18,7 +12,6 @@ globalThis.addEventListener("message", (event: IEvent) => {
     .map((key) => {
       return {
         quality: key.replace(/^quality_/, ""),
-        // @ts-expect-error
         url: globalThis[key],
       };
     });

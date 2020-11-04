@@ -32,7 +32,7 @@ export default class implements IExtractor {
       if (scriptText.indexOf("flashvars_") >= 0) {
         videos = await new Promise((resolve, reject) => {
           const worker = new Worker(
-            new URL("../worker.ts", import.meta.url).href,
+            new URL("./worker.js", import.meta.url).href,
             {
               type: "module",
             },
