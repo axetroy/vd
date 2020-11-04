@@ -11,6 +11,8 @@ export default class implements IExtractor {
   async extract(url: URL) {
     const res = await fetch(url);
 
+    if (!res.ok) throw new Error(res.statusText);
+
     const html = await res.text();
 
     const titleRegexp = /<span\s+class=\"inlineFree\">(.+?)<\/span>/;
@@ -19,20 +21,29 @@ export default class implements IExtractor {
     const titleMatch = titleRegexp.exec(html);
 
     const title = titleMatch ? titleMatch[1] : "";
-    const videoID = url.searchParams.get("viewkey") as string;
 
     let videos: Array<{
       quality: string;
       url: string;
     }> = [];
 
-    var match;
-    while ((match = scriptRegexp.exec(html))) {
-      const scriptText = match[1];
-      if (scriptText.indexOf("flashvars_") >= 0) {
+    const match = html.match(scriptRegexp)?.filter((v) =>
+      v.indexOf("flashvars_") >= 0
+    );
+
+    if (!match) {
+      throw new Error("not match file");
+    }
+
+    while (match.length) {
+      const scriptHTML = match.shift() as string;
+
+      const m = scriptRegexp.exec(scriptHTML);
+      if (m) {
+        const scriptText = m[1];
         videos = await new Promise((resolve, reject) => {
           const worker = new Worker(
-            new URL("./worker.js", import.meta.url).href,
+            new URL("./p_worker.js", import.meta.url).href,
             {
               type: "module",
             },
