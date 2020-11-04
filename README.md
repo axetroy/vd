@@ -22,7 +22,11 @@
 在终端输入以下命令进行安装
 
 ```bash
-deno install --unstable --allow-read --allow-write --allow-net -f --reload https://github.com/axetroy/vd/raw/master/vd.ts
+deno install \
+  --unstable \
+  --allow-read \
+  --allow-write --allow-net -f --reload \
+  https://github.com/axetroy/vd/raw/master/vd.ts
 ```
 
 查看是否安装成功
