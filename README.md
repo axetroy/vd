@@ -25,8 +25,12 @@
 deno install \
   --unstable \
   --allow-read \
-  --allow-write --allow-net -f --reload \
-  https://github.com/axetroy/vd/raw/master/vd.ts
+  --allow-write \
+  --allow-net \
+  --no-check \
+  --reload \
+  -f \
+  https://github.com/axetroy/vd/raw/v0.1.0/vd.ts
 ```
 
 查看是否安装成功
