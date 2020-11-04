@@ -22,7 +22,7 @@ class Application implements IApplication {
 
     const resources = await provider.extract(new URL(url));
 
-    if (resources.streams.length) {
+    if (!resources.streams.length) {
       console.log("resource not found.");
       return;
     }
