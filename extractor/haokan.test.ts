@@ -49,24 +49,29 @@ Deno.test({
       assertEquals(output.name, test.expect.name);
       assertEquals(output.url, test.expect.url);
 
-      assert(output.streams.length > 1);
+      assertEquals(output.streams.length, 3);
 
-      output.streams.forEach((stream, index) => {
+      let index = 0;
+
+      for (const stream of output.streams) {
         assertEquals(stream.filename, test.expect.streams[index].filename);
         assertEquals(stream.size, test.expect.streams[index].size);
         assertEquals(stream.quality, test.expect.streams[index].quality);
         assert(new URL(stream.url).href !== "");
-      });
 
-      // try download file
-      const videoPath = await download(
-        new URL(output.streams[output.streams.length - 1].url),
-        "./dist",
-        8,
-        "穷姑娘为了一块钱，去富婆车底下捡，结果被富婆狠狠教训！.标清.mp4",
-      );
+        index++;
 
-      console.log("download filepath:", videoPath);
+        const videoPath = await download(
+          new URL(stream.url),
+          "./dist",
+          8,
+          stream.filename,
+        );
+
+        const stat = await Deno.stat(videoPath);
+
+        assertEquals(stat.size, stream.size);
+      }
     }
   },
 });

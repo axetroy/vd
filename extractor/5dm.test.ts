@@ -2,6 +2,7 @@ import {
   assert,
   assertEquals,
 } from "https://deno.land/std@0.76.0/testing/asserts.ts";
+import { download } from "../download/mod.ts";
 import { IResource } from "../type.ts";
 import Extractor5DM from "./5dm.ts";
 
@@ -36,12 +37,27 @@ Deno.test({
       assertEquals(output.name, test.expect.name);
       assertEquals(output.url, test.expect.url);
 
-      output.streams.forEach((stream, index) => {
+      let index = 0;
+
+      for (const stream of output.streams) {
         assertEquals(stream.filename, test.expect.streams[index].filename);
         assertEquals(stream.size, test.expect.streams[index].size);
         assertEquals(stream.quality, test.expect.streams[index].quality);
         assert(new URL(stream.url).href !== "");
-      });
+
+        index++;
+
+        const videoPath = await download(
+          new URL(stream.url),
+          "./dist",
+          8,
+          stream.filename,
+        );
+
+        const stat = await Deno.stat(videoPath);
+
+        assertEquals(stat.size, stream.size);
+      }
     }
   },
 });

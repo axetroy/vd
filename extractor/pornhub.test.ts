@@ -52,22 +52,27 @@ Deno.test({
 
       assert(output.streams.length === 3);
 
-      output.streams.forEach((stream, index) => {
+      let index = 0;
+
+      for (const stream of output.streams) {
         assertEquals(stream.filename, test.expect.streams[index].filename);
         assertEquals(stream.size, test.expect.streams[index].size);
         assertEquals(stream.quality, test.expect.streams[index].quality);
         assert(new URL(stream.url).href !== "");
-      });
 
-      // try download file
-      const videoPath = await download(
-        new URL(output.streams[output.streams.length - 1].url),
-        "./dist",
-        8,
-        "Fat_Assed_Indian_Girl_Farting_while_she&#039;s_Riding_Dick.240p.mp4",
-      );
+        index++;
 
-      console.log("download filepath:", videoPath);
+        const videoPath = await download(
+          new URL(stream.url),
+          "./dist",
+          8,
+          stream.filename,
+        );
+
+        const stat = await Deno.stat(videoPath);
+
+        assertEquals(stat.size, stream.size);
+      }
     }
   },
 });
