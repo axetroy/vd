@@ -22,4 +22,4 @@ jobs:
           deno-version: ${{ matrix.deno }}
 
       - name: Test
-        run: deno test -A ./extractor/5dm.test.ts
+        run: deno test -A --unstable ./extractor/5dm.test.ts
