@@ -16,7 +16,7 @@ function extractIdFromURL(url: URL): string {
 // example: https://www.xvideos.com/video57010397/scared_teen_stepsisters_pranked_by_stepbro_during_halloween
 export default class implements IExtractor {
   public website = "https://xvideos.com";
-  public tester = /^https:\/\/www\.xvideos\.com\/video\d+\/[\w_]+$/;
+  public tester = /^https:\/\/www\.xvideos\.com\/video\d+\/.+$/;
   async extract(url: URL) {
     const res = await fetch(url);
 
