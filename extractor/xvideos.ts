@@ -26,8 +26,6 @@ export default class implements IExtractor {
 
     const titleMatcher = titleRegexp.exec(html);
 
-    const videoID = extractIdFromURL(url);
-
     if (!titleMatcher) {
       throw new Error("parse title error");
     }
