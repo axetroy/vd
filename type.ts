@@ -18,7 +18,7 @@ export interface IExtractor {
 }
 
 export interface IDownloader {
-  download(resource: IResource, options?: IDownloaderOptions): Promise<string>;
+  download(resource: IResource, options?: IDownloaderOptions): Promise<void>;
 }
 
 export interface IDownloaderOptions {

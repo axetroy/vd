@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        deno: ["v1.5.x"]
+        deno: ["v1.6.x"]
         os: [ubuntu-latest]
     name: haokan.baidu.com
     steps:
@@ -22,4 +22,4 @@ jobs:
           deno-version: ${{ matrix.deno }}
 
       - name: Test
-        run: deno test -A --unstable ./extractor/haokan.test.ts
+        run: deno test -A --unstable ./1_extractor/haokan.test.ts

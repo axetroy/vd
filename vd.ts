@@ -1,11 +1,11 @@
 import { parse } from "https://deno.land/std@0.76.0/flags/mod.ts";
+import Extractor5DM from "./1_extractor/5dm.ts";
+import ExtractorBilibili from "./1_extractor/bilibili.ts";
+import ExtractorHaokan from "./1_extractor/haokan.ts";
+import ExtractorPornhub from "./1_extractor/pornhub.ts";
+import ExtractorXVideos from "./1_extractor/xvideos.ts";
+import ExtractorYoutue from "./1_extractor/youtube.ts";
 import { Application } from "./application.ts";
-import Extractor5DM from "./extractor/5dm.ts";
-import ExtractorBilibili from "./extractor/bilibili.ts";
-import ExtractorHaokan from "./extractor/haokan.ts";
-import ExtractorPornhub from "./extractor/pornhub.ts";
-import ExtractorXVideos from "./extractor/xvideos.ts";
-import ExtractorYoutue from "./extractor/youtube.ts";
 
 const VERSION = "v0.1.0";
 
@@ -13,7 +13,7 @@ const flags = parse(Deno.args, {
   "--": false,
   boolean: ["help", "version"],
   alias: { help: "h", version: "V", threads: "n" },
-  default: { threads: 8 },
+  default: { n: 16 },
 });
 
 if (flags.help) {
