@@ -7,14 +7,22 @@ globalThis.addEventListener("message", (event) => {
     console.error(err);
   }
 
-  const resource = Object.keys(globalThis)
-    .filter((v) => /^quality_/.test(v))
+  const qualities = Object.keys(globalThis).filter((v) =>
+    /^qualityItems/.test(v)
+  );
+
+  const resource = qualities
     .map((key) => {
-      return {
-        quality: key.replace(/^quality_/, ""),
-        url: globalThis[key],
-      };
-    });
+      return globalThis[key]
+        .filter((v) => v.url)
+        .map((v) => {
+          return {
+            quality: v.text,
+            url: v.url,
+          };
+        });
+    })
+    .flat();
 
   globalThis.postMessage(resource);
   self.close();

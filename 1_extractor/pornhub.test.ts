@@ -13,31 +13,31 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
-        url: "https://www.pornhub.com/view_video.php?viewkey=ph5dc34284a0844",
+        url: "https://pornhub.com/view_video.php?viewkey=ph5f8693950f104",
         expect: {
-          name: "Fat Assed Indian Girl Farting while she&#039;s Riding Dick",
-          url: "https://www.pornhub.com/view_video.php?viewkey=ph5dc34284a0844",
+          name: "Cute Babe Amateur Teen has Tight Pussy for Big Dick",
+          url: "https://pornhub.com/view_video.php?viewkey=ph5f8693950f104",
           streams: [
             {
               quality: "720p",
               url: "",
               filename:
-                "Fat_Assed_Indian_Girl_Farting_while_she&#039;s_Riding_Dick.720p.mp4",
-              size: 4041392,
+                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.720p.mp4",
+              size: 87963608,
             },
             {
               quality: "480p",
               url: "",
               filename:
-                "Fat_Assed_Indian_Girl_Farting_while_she&#039;s_Riding_Dick.480p.mp4",
-              size: 2460625,
+                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.480p.mp4",
+              size: 52306323,
             },
             {
               quality: "240p",
               url: "",
               filename:
-                "Fat_Assed_Indian_Girl_Farting_while_she&#039;s_Riding_Dick.240p.mp4",
-              size: 1285672,
+                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.240p.mp4",
+              size: 30372557,
             },
           ],
         },
