@@ -3,7 +3,7 @@ import * as path from "https://deno.land/std@0.76.0/path/mod.ts";
 import { download as downloadFile } from "https://deno.land/x/download@v1.0.1/mod.ts";
 
 function getAria2URL() {
-  return `https://github.com/axetroy/vd/raw/master/2_download/aria2/${Deno.build.os}/aria2c${
+  return `https://github.com/axetroy/vd/raw/master/aria2/${Deno.build.os}/aria2c${
     Deno.build.os === "windows" ? ".exe" : ""
   }`;
 }
