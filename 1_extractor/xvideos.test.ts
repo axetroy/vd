@@ -14,25 +14,23 @@ Deno.test({
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
         url:
-          "https://www.xvideos.com/video57010397/scared_teen_stepsisters_pranked_by_stepbro_during_halloween",
+          "https://www.xvideos.com/video60145833/18709295/0/gentle_sex_with_big_tits",
         expect: {
-          "name": "Scared teen stepsisters pranked by stepbro during Halloween",
+          "name": "Gentle sex with Big Tits",
           "url":
-            "https://www.xvideos.com/video57010397/scared_teen_stepsisters_pranked_by_stepbro_during_halloween",
+            "https://www.xvideos.com/video60145833/18709295/0/gentle_sex_with_big_tits",
           "streams": [
             {
               "quality": "high",
               "url": "",
-              "filename":
-                "Scared_teen_stepsisters_pranked_by_stepbro_during_Halloween.high.mp4",
-              "size": 32859382,
+              "filename": "Gentle_sex_with_Big_Tits.high.mp4",
+              "size": 24813153,
             },
             {
               "quality": "low",
               "url": "",
-              "filename":
-                "Scared_teen_stepsisters_pranked_by_stepbro_during_Halloween.low.mp4",
-              "size": 13265856,
+              "filename": "Gentle_sex_with_Big_Tits.low.mp4",
+              "size": 9900160,
             },
           ],
         },
