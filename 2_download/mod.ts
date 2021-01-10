@@ -1,6 +1,6 @@
 import * as fs from "https://deno.land/std@0.76.0/fs/mod.ts";
 import * as path from "https://deno.land/std@0.76.0/path/mod.ts";
-import { download as downloadFile } from "https://deno.land/x/download@v1.0.1/mod.ts";
+import { downloadFile } from "./download.ts";
 
 function getAria2URL() {
   return `https://github.com/axetroy/vd/raw/master/aria2/${Deno.build.os}/aria2c${
@@ -24,11 +24,14 @@ async function getAria2Path(): Promise<string> {
     const aria2URL = getAria2URL();
     // if aria2 file not found. then download it
     console.log(`Downloading aria2 from '${aria2URL}'`);
-    await downloadFile(aria2URL, {
-      dir: path.dirname(aria2ExecutableFile),
-      file: path.basename(aria2ExecutableFile),
-      mode: 0x755,
-    });
+    await downloadFile(
+      new URL(aria2URL),
+      {
+        dir: path.dirname(aria2ExecutableFile),
+        filename: path.basename(aria2ExecutableFile),
+        mode: 0x755,
+      },
+    );
   } else {
     try {
       await Deno.chmod(aria2ExecutableFile, 0x755);
