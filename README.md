@@ -17,7 +17,7 @@
 
 ## 安装
 
-> 在使用前请先安装 [Deno](https://github.com/denoland/deno) v1.5.x
+> 在使用前请先安装 [Deno](https://github.com/denoland/deno) v1.6.x
 
 在终端输入以下命令进行安装
 
@@ -32,7 +32,7 @@ deno install \
   --no-check \
   --reload \
   -f \
-  https://github.com/axetroy/vd/raw/v0.1.1/vd.ts
+  https://github.com/axetroy/vd/raw/v0.2.0/vd.ts
 ```
 
 查看是否安装成功
