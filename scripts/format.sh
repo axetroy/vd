@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-deno fmt **/*.ts
+deno fmt **/*.ts *.ts

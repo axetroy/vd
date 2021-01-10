@@ -4,7 +4,7 @@ import {
   IApplication,
   IDownloader,
   IDownloaderOptions,
-  IExtractor
+  IExtractor,
 } from "./type.ts";
 
 class Application implements IApplication {
