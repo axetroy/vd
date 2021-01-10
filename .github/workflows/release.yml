@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        deno: ["1.5.x"]
+        deno: ["1.6.x"]
         os: [ubuntu-latest]
     name: release
     steps:
@@ -24,7 +24,7 @@ jobs:
       - name: Bundle
         run: |
           deno bundle --unstable vd.ts ./dist/vd.js
-          cp ./extractor/p_worker.js ./dist/p_worker.js
+          cp ./1_extractor/p_worker.js ./dist/p_worker.js
 
       - uses: softprops/action-gh-release@v1
         env:

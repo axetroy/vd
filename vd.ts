@@ -7,7 +7,7 @@ import ExtractorXVideos from "./1_extractor/xvideos.ts";
 import ExtractorYoutue from "./1_extractor/youtube.ts";
 import { Application } from "./application.ts";
 
-const VERSION = "v0.1.0";
+const VERSION = "v0.2.0";
 
 const flags = parse(Deno.args, {
   "--": false,
