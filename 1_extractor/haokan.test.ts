@@ -1,6 +1,6 @@
 import {
   assert,
-  assertEquals
+  assertEquals,
 } from "https://deno.land/std@0.76.0/testing/asserts.ts";
 import { download } from "../2_download/mod.ts";
 import { IResource } from "../type.ts";
