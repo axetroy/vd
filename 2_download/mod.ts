@@ -35,7 +35,7 @@ async function getAria2Path(): Promise<string> {
     }
   }
 
-  return await aria2ExecutableFile;
+  return aria2ExecutableFile;
 }
 
 /**
