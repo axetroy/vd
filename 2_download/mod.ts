@@ -20,7 +20,7 @@ async function getAria2Path(): Promise<string> {
     "aria2c" + (Deno.build.os === "windows" ? ".exe" : ""),
   );
 
-  if (!fs.exists(aria2ExecutableFile)) {
+  if (await fs.exists(aria2ExecutableFile) === false) {
     const aria2URL = getAria2URL();
     // if aria2 file not found. then download it
     console.log(`Downloading aria2 from '${aria2URL}'`);

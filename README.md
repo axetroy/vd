@@ -28,6 +28,7 @@ deno install \
   --allow-write \
   --allow-net \
   --allow-run \
+  --allow-env \
   --no-check \
   --reload \
   -f \
