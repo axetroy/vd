@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         deno: ["v1.6.x"]
-        os: [ubuntu-latest]
-    name: haokan.baidu.com
+        os: [ubuntu-latest, macos-latest]
+    name: haokan.baidu.com ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup deno

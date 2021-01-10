@@ -12,8 +12,8 @@ jobs:
     strategy:
       matrix:
         deno: ["v1.6.x"]
-        os: [ubuntu-latest]
-    name: youtube.com
+        os: [ubuntu-latest, macos-latest]
+    name: youtube ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup deno

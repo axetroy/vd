@@ -54,7 +54,7 @@ export async function download(
 ): Promise<void> {
   const aria2Path = await getAria2Path();
 
-  console.log(`use aria2 file path: '${aria2Path}'`);
+  console.log(`download with aria2 '${aria2Path}'`);
 
   const commands = [
     aria2Path,
