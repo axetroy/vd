@@ -9,12 +9,14 @@ function getAria2URL() {
 }
 
 async function getAria2Path(): Promise<string> {
-  const __dirname = path.dirname(new URL(import.meta.url).pathname);
+  const downloadDir = path.join(
+    Deno.env.get("HOME") || "",
+    ".aria2",
+    Deno.build.os,
+  );
 
   const aria2ExecutableFile = path.join(
-    __dirname,
-    "aria2",
-    Deno.build.os,
+    downloadDir,
     "aria2c" + (Deno.build.os === "windows" ? ".exe" : ""),
   );
 
