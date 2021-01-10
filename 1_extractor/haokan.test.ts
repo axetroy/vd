@@ -1,7 +1,7 @@
 import {
   assert,
   assertEquals,
-} from "https://deno.land/std@0.76.0/testing/asserts.ts";
+} from "https://deno.land/std@0.83.0/testing/asserts.ts";
 import { download } from "../2_download/mod.ts";
 import { IResource } from "../type.ts";
 import ExtractorHaokan from "./haokan.ts";

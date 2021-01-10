@@ -1,4 +1,4 @@
-import { green } from "https://deno.land/std@0.76.0/fmt/colors.ts";
+import { green } from "https://deno.land/std@0.83.0/fmt/colors.ts";
 import { Downloader } from "./downloader.ts";
 import {
   IApplication,

@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.76.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.83.0/testing/asserts.ts";
 import { nameify, segmenter, sum } from "./utils.ts";
 
 Deno.test({
