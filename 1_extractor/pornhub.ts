@@ -7,7 +7,7 @@ import { getVideoName } from "../utils.ts";
 export default class implements IExtractor {
   public website = "https://pornhub.com";
   public tester =
-    /^https:\/\/[a-z]+\.pornhub\.com\/view_video\.php\?viewkey=\w+$/;
+    /^https:\/\/([a-z]+\.)?pornhub\.com\/view_video\.php\?viewkey=\w+$/;
   async extract(url: URL) {
     const res = await fetch(url);
 
