@@ -1,10 +1,10 @@
-import { green } from "https://deno.land/std@0.83.0/fmt/colors.ts";
+import { green } from "https://deno.land/std@0.84.0/fmt/colors.ts";
 import { Downloader } from "./downloader.ts";
 import {
-  IApplication,
-  IDownloader,
-  IDownloaderOptions,
-  IExtractor,
+    IApplication,
+    IDownloader,
+    IDownloaderOptions,
+    IExtractor
 } from "./type.ts";
 
 class Application implements IApplication {
