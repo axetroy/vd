@@ -24,8 +24,8 @@ interface APIResponse {
   message: string;
   ttl: number;
   data: {
-    accept_description: string[];
-    support_formats: Array<{
+    "accept_description": string[];
+    "support_formats": Array<{
       display_desc: string; // 1080P
       format: string; // flv_p60
       new_description: string; // 1080P 60帧
