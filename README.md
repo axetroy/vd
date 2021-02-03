@@ -6,15 +6,15 @@
 
 支持的站点
 
-| 站点                               | 状态                                                                        | 说明                                 |
-| ---------------------------------- | --------------------------------------------------------------------------- | ------------------------------------ |
-| [Youtube](https://youtube.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/youtube/badge.svg)  | **需要科学上网**                     |
+| 站点                                 | 状态                                                                          | 说明                  |
+| ---------------------------------- | --------------------------------------------------------------------------- | ------------------- |
+| [Youtube](https://youtube.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/youtube/badge.svg)  | **需要科学上网**          |
 | [Bilibili](https://bilibili.com)   | ![Build Status](https://github.com/axetroy/vd/workflows/bilibili/badge.svg) | 不支持番剧/电影/集合下载，视频无声音 |
-| [5dm.tv](https://www.5dm.tv)       | ![Build Status](https://github.com/axetroy/vd/workflows/5dm/badge.svg)      |                                      |
-| [Haokan](https://haokan.baidu.com) | ![Build Status](https://github.com/axetroy/vd/workflows/haokan/badge.svg)   |                                      |
-| [PornHub](https://pornhub.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/pornhub/badge.svg)  | **需要科学上网**                     |
-| [XVideos](https://xvideos.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/xvideos/badge.svg)  | **需要科学上网**                     |
-| [xnxx](https://xnxx.com)           | ![Build Status](https://github.com/axetroy/vd/workflows/xnxx/badge.svg)     | **需要科学上网**                     |
+| [5dm.tv](https://www.5dm.tv)       | ![Build Status](https://github.com/axetroy/vd/workflows/5dm/badge.svg)      |                     |
+| [Haokan](https://haokan.baidu.com) | ![Build Status](https://github.com/axetroy/vd/workflows/haokan/badge.svg)   |                     |
+| [PornHub](https://pornhub.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/pornhub/badge.svg)  | **需要科学上网**          |
+| [XVideos](https://xvideos.com)     | ![Build Status](https://github.com/axetroy/vd/workflows/xvideos/badge.svg)  | **需要科学上网**          |
+| [xnxx](https://xnxx.com)           | ![Build Status](https://github.com/axetroy/vd/workflows/xnxx/badge.svg)     | **需要科学上网**          |
 
 ## 安装
 

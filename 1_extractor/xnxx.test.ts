@@ -2,7 +2,6 @@ import {
   assert,
   assertEquals,
 } from "https://deno.land/std@0.85.0/testing/asserts.ts";
-import { download } from "../2_download/mod.ts";
 import { IResource } from "../type.ts";
 import ExtractorXnxx from "./xnxx.ts";
 
@@ -13,8 +12,7 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
-        url:
-          "https://www.xnxx.com/video-bykb3e9/margot_lourdet_in_naked_2014_",
+        url: "https://www.xnxx.com/video-bykb3e9/margot_lourdet_in_naked_2014_",
         expect: {
           "name": "Margot Lourdet in Naked (2014)",
           "url":
