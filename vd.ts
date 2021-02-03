@@ -4,6 +4,7 @@ import ExtractorBilibili from "./1_extractor/bilibili.ts";
 import ExtractorHaokan from "./1_extractor/haokan.ts";
 import ExtractorPornhub from "./1_extractor/pornhub.ts";
 import ExtractorXVideos from "./1_extractor/xvideos.ts";
+import ExtractorXnxx from "./1_extractor/xnxx.ts";
 import ExtractorYoutue from "./1_extractor/youtube.ts";
 import { Application } from "./application.ts";
 
@@ -47,5 +48,6 @@ app.register(new ExtractorBilibili());
 app.register(new Extractor5DM());
 app.register(new ExtractorPornhub());
 app.register(new ExtractorXVideos());
+app.register(new ExtractorXnxx());
 
 await app.start(flags._[0] + "", { threading: flags.n as number });
