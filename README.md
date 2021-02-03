@@ -33,7 +33,7 @@ deno install \
   --no-check \
   --reload \
   -f \
-  https://github.com/axetroy/vd/raw/v0.2.0/vd.ts
+  https://github.com/axetroy/vd/raw/v0.2.2/vd.ts
 ```
 
 查看是否安装成功

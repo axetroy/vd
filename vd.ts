@@ -8,7 +8,7 @@ import ExtractorXnxx from "./1_extractor/xnxx.ts";
 import ExtractorYoutue from "./1_extractor/youtube.ts";
 import { Application } from "./application.ts";
 
-const VERSION = "v0.2.0";
+const VERSION = "v0.2.2";
 
 const flags = parse(Deno.args, {
   "--": false,
