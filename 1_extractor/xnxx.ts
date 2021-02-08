@@ -6,7 +6,7 @@ import { getVideoName } from "../utils.ts";
 // example: https://www.xnxx.com/video-bykb3e9/margot_lourdet_in_naked_2014_
 export default class implements IExtractor {
   public website = "https://www.xnxx.com";
-  public tester = /^https:\/\/www\.xnxx\.com\/video-[a-z0-9]+\/[a-z_0-9]+$/;
+  public tester = /^https:\/\/www\.xnxx\.com\/video-[a-z0-9]+\/.+$/;
   async extract(url: URL) {
     const res = await fetch(url);
 
