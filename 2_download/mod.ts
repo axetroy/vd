@@ -1,4 +1,4 @@
-import * as fs from "https://deno.land/std@0.89.0/fs/mod.ts";
+import { exists } from "https://deno.land/std@0.89.0/fs/exists.ts";
 import * as path from "https://deno.land/std@0.89.0/path/mod.ts";
 import { downloadFile } from "./download.ts";
 
@@ -20,7 +20,7 @@ async function getAria2Path(): Promise<string> {
     "aria2c" + (Deno.build.os === "windows" ? ".exe" : ""),
   );
 
-  if (await fs.exists(aria2ExecutableFile) === false) {
+  if (await exists(aria2ExecutableFile) === false) {
     const aria2URL = getAria2URL();
     // if aria2 file not found. then download it
     console.log(`Downloading aria2 from '${aria2URL}'`);

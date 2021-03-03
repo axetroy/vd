@@ -24,7 +24,6 @@
 
 ```bash
 deno install \
-  --unstable \
   --allow-read \
   --allow-write \
   --allow-net \

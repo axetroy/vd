@@ -1,4 +1,4 @@
-import * as fs from "https://deno.land/std@0.89.0/fs/mod.ts";
+import { ensureDir } from "https://deno.land/std@0.89.0/fs/ensure_dir.ts";
 import * as path from "https://deno.land/std@0.89.0/path/mod.ts";
 import { Progress } from "./progress.ts";
 
@@ -27,7 +27,7 @@ export async function downloadFile(
     display: `:completed/:total ${filename} :time [:bar] :percent`,
   });
 
-  await fs.ensureDir(options.dir);
+  await ensureDir(options.dir);
 
   const dist = path.join(options.dir, filename);
 
