@@ -1,5 +1,5 @@
-import * as fs from "https://deno.land/std@0.85.0/fs/mod.ts";
-import * as path from "https://deno.land/std@0.85.0/path/mod.ts";
+import * as fs from "https://deno.land/std@0.89.0/fs/mod.ts";
+import * as path from "https://deno.land/std@0.89.0/path/mod.ts";
 import { Progress } from "./progress.ts";
 
 export interface DownloadOptions {

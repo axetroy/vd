@@ -18,7 +18,7 @@
 
 ## 安装
 
-> 在使用前请先安装 [Deno](https://github.com/denoland/deno) v1.7.x
+> 在使用前请先安装 [Deno](https://github.com/denoland/deno) v1.8.x
 
 在终端输入以下命令进行安装
 
