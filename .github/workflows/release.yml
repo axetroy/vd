@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        deno: ["1.6.x"]
+        deno: ["1.7.x"]
         os: [ubuntu-latest]
     name: release
     steps:
