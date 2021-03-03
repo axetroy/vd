@@ -23,7 +23,7 @@ jobs:
 
       - name: Bundle
         run: |
-          deno bundle --unstable vd.ts ./dist/vd.js
+          deno bundle vd.ts ./dist/vd.js
           cp ./1_extractor/p_worker.js ./dist/p_worker.js
 
       - uses: softprops/action-gh-release@v1
