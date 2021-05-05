@@ -13,12 +13,10 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
-        url:
-          "https://www.xvideos.com/video62434581/_",
+        url: "https://www.xvideos.com/video62434581/_",
         expect: {
           "name": "เย็ดเด็กชมรมมหาลัย คาชุด แตกใส่ปาก",
-          "url":
-            "https://www.xvideos.com/video62434581/_",
+          "url": "https://www.xvideos.com/video62434581/_",
           "streams": [
             {
               "quality": "high",
