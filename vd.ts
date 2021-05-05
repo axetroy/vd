@@ -1,4 +1,4 @@
-import { parse } from "https://deno.land/std@0.89.0/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.95.0/flags/mod.ts";
 import Extractor5DM from "./1_extractor/5dm.ts";
 import ExtractorBilibili from "./1_extractor/bilibili.ts";
 import ExtractorHaokan from "./1_extractor/haokan.ts";

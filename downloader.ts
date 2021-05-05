@@ -1,5 +1,5 @@
-import { green } from "https://deno.land/std@0.89.0/fmt/colors.ts";
-import * as path from "https://deno.land/std@0.89.0/path/mod.ts";
+import { green } from "https://deno.land/std@0.95.0/fmt/colors.ts";
+import * as path from "https://deno.land/std@0.95.0/path/mod.ts";
 import convertSize from "https://x.nest.land/convert-size@1.1.2/mod.ts";
 import { download } from "./2_download/mod.ts";
 import { IDownloader, IDownloaderOptions, IResource } from "./type.ts";
