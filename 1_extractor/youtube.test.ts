@@ -97,7 +97,7 @@ Deno.test({
 
         index++;
 
-        const videoPath = await download(
+        await download(
           new URL(stream.url),
           "./dist",
           4,

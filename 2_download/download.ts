@@ -1,5 +1,6 @@
 import { ensureDir } from "https://deno.land/std@0.95.0/fs/ensure_dir.ts";
 import * as path from "https://deno.land/std@0.95.0/path/mod.ts";
+import { writeAll } from "https://deno.land/std@0.95.0/io/util.ts";
 import { Progress } from "./progress.ts";
 
 export interface DownloadOptions {
@@ -43,7 +44,7 @@ export async function downloadFile(
       )
     }Kb/s`;
     progress.render(chunk.length);
-    await Deno.writeAll(file, chunk);
+    await writeAll(file, chunk);
   }
 
   file.close();
