@@ -21,6 +21,12 @@ Deno.test({
             "https://haokan.baidu.com/v?vid=18344503110611384639&tab=recommend",
           "streams": [
             {
+              "quality": "蓝光",
+              "url": "",
+              "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.蓝光.mp4",
+              "size": 175726272,
+            },
+            {
               "quality": "超清",
               "url": "",
               "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.超清.mp4",
@@ -49,7 +55,7 @@ Deno.test({
       assertEquals(output.name, test.expect.name);
       assertEquals(output.url, test.expect.url);
 
-      assertEquals(output.streams.length, 3);
+      assertEquals(output.streams.length, test.expect.streams.length);
 
       let index = 0;
 
