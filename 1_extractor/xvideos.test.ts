@@ -14,23 +14,23 @@ Deno.test({
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
         url:
-          "https://www.xvideos.com/video60145833/18709295/0/gentle_sex_with_big_tits",
+          "https://www.xvideos.com/video62434581/_",
         expect: {
-          "name": "Gentle sex with Big Tits",
+          "name": "เย็ดเด็กชมรมมหาลัย คาชุด แตกใส่ปาก",
           "url":
-            "https://www.xvideos.com/video60145833/18709295/0/gentle_sex_with_big_tits",
+            "https://www.xvideos.com/video62434581/_",
           "streams": [
             {
               "quality": "high",
               "url": "",
-              "filename": "Gentle_sex_with_Big_Tits.high.mp4",
-              "size": 24813153,
+              "filename": "เย็ดเด็กชมรมมหาลัย_คาชุด_แตกใส่ปาก.high.mp4",
+              "size": 30207673,
             },
             {
               "quality": "low",
               "url": "",
-              "filename": "Gentle_sex_with_Big_Tits.low.mp4",
-              "size": 9900160,
+              "filename": "เย็ดเด็กชมรมมหาลัย_คาชุด_แตกใส่ปาก.low.mp4",
+              "size": 12172442,
             },
           ],
         },

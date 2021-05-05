@@ -23,14 +23,14 @@ Deno.test({
               url: "",
               filename:
                 "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.720p.mp4",
-              size: 87963608,
+              size: 105719796,
             },
             {
               quality: "480p",
               url: "",
               filename:
                 "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.480p.mp4",
-              size: 52306323,
+              size: 58709172,
             },
             {
               quality: "240p",
