@@ -23,11 +23,13 @@ export default class implements IExtractor {
 
     const html = await res.text();
 
-    const cookies = (res.headers.get("set-cookie") || "").split(";").map(v => v.trim());
+    const cookies = (res.headers.get("set-cookie") || "").split(";").map((v) =>
+      v.trim()
+    );
     const cookieObj: { [key: string]: string } = {};
 
     for (const c of cookies) {
-      const arr = c.split(",").map(v => v.trim());
+      const arr = c.split(",").map((v) => v.trim());
 
       for (const str of arr) {
         const matcher = /^([\w]+)=(.+)$/.exec(str);
@@ -42,7 +44,7 @@ export default class implements IExtractor {
           "httpOnly",
           "Max-Age",
           "expires",
-          'SameSite'
+          "SameSite",
         ].find((v) => v.toLowerCase() === key);
 
         if (isBuildInKey) {
@@ -102,7 +104,7 @@ export default class implements IExtractor {
             reject(err);
           };
 
-          worker.postMessage({code: scriptText, cookies: cookieObj});
+          worker.postMessage({ code: scriptText, cookies: cookieObj });
         });
       }
     }

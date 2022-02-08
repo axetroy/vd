@@ -13,12 +13,10 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
-        url:
-          "https://haokan.baidu.com/v?vid=10655027474920475618",
+        url: "https://haokan.baidu.com/v?vid=10655027474920475618",
         expect: {
           "name": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸",
-          "url":
-            "https://haokan.baidu.com/v?vid=10655027474920475618",
+          "url": "https://haokan.baidu.com/v?vid=10655027474920475618",
           "streams": [
             {
               "quality": "蓝光",
