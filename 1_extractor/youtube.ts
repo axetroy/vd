@@ -18,6 +18,10 @@ export default class implements IExtractor {
       throw new Error("request fail");
     }
 
+    if (res.status !== 200) {
+      throw new Error(`request status code ${res.status}, ${res.statusText}`);
+    }
+
     const output = await res.text();
 
     const answer = new URL("https://example.com/?" + output);

@@ -9,11 +9,49 @@ export default class implements IExtractor {
   public tester =
     /^https:\/\/([a-z]+\.)?pornhub\.com\/view_video\.php\?viewkey=\w+$/;
   async extract(url: URL) {
-    const res = await fetch(url);
+    const ac = new AbortController();
+
+    const timer = setTimeout(() => {
+      ac.abort();
+    }, 30 * 1000);
+
+    const res = await fetch(url, { signal: ac.signal });
+
+    clearTimeout(timer);
 
     if (!res.ok) throw new Error(res.statusText);
 
     const html = await res.text();
+
+    const cookies = (res.headers.get("set-cookie") || "").split(";").map(v => v.trim());
+    const cookieObj: { [key: string]: string } = {};
+
+    for (const c of cookies) {
+      const arr = c.split(",").map(v => v.trim());
+
+      for (const str of arr) {
+        const matcher = /^([\w]+)=(.+)$/.exec(str);
+        if (!matcher) continue;
+        const key = matcher[1];
+        const value = matcher[2];
+
+        const isBuildInKey = [
+          "path",
+          "domain",
+          "secure",
+          "httpOnly",
+          "Max-Age",
+          "expires",
+          'SameSite'
+        ].find((v) => v.toLowerCase() === key);
+
+        if (isBuildInKey) {
+          continue;
+        }
+
+        cookieObj[key] = value;
+      }
+    }
 
     const titleRegexp = /<span\s+class=\"inlineFree\">(.+?)<\/span>/;
     const scriptRegexp = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
@@ -46,6 +84,11 @@ export default class implements IExtractor {
             new URL("./p_worker.js", import.meta.url).href,
             {
               type: "module",
+              deno: {
+                permissions: {
+                  net: "inherit",
+                },
+              },
             },
           );
 
@@ -59,7 +102,7 @@ export default class implements IExtractor {
             reject(err);
           };
 
-          worker.postMessage(scriptText);
+          worker.postMessage({code: scriptText, cookies: cookieObj});
         });
       }
     }
@@ -69,7 +112,9 @@ export default class implements IExtractor {
         const res = await fetch(v.url, { method: "HEAD" });
         const size = Number(res.headers.get("content-length"));
         const mineType = (res.headers.get("content-type") as string);
-        await res.body!.cancel();
+        if (res.body) {
+          await res.body.cancel();
+        }
         return Promise.resolve({
           ...v,
           url: v.url,

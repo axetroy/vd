@@ -13,31 +13,39 @@ Deno.test({
 
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
-        url: "https://pornhub.com/view_video.php?viewkey=ph5f8693950f104",
+        url: "https://www.pornhub.com/view_video.php?viewkey=ph60be7dbe1e3dd",
         expect: {
-          name: "Cute Babe Amateur Teen has Tight Pussy for Big Dick",
-          url: "https://pornhub.com/view_video.php?viewkey=ph5f8693950f104",
+          name:
+            "Novia en pijama con culo perfecto recibe toda su leche - Sexo Real",
+          url: "https://www.pornhub.com/view_video.php?viewkey=ph60be7dbe1e3dd",
           streams: [
+            {
+              quality: "1080p",
+              url: "",
+              filename:
+                "Novia_en_pijama_con_culo_perfecto_recibe_toda_su_leche_-_Sexo_Real.1080p.mp4",
+              size: 86910426,
+            },
             {
               quality: "720p",
               url: "",
               filename:
-                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.720p.mp4",
-              size: 105719796,
+                "Novia_en_pijama_con_culo_perfecto_recibe_toda_su_leche_-_Sexo_Real.720p.mp4",
+              size: 40532825,
             },
             {
               quality: "480p",
               url: "",
               filename:
-                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.480p.mp4",
-              size: 58709172,
+                "Novia_en_pijama_con_culo_perfecto_recibe_toda_su_leche_-_Sexo_Real.480p.mp4",
+              size: 22301919,
             },
             {
               quality: "240p",
               url: "",
               filename:
-                "Cute_Babe_Amateur_Teen_has_Tight_Pussy_for_Big_Dick.240p.mp4",
-              size: 30372557,
+                "Novia_en_pijama_con_culo_perfecto_recibe_toda_su_leche_-_Sexo_Real.240p.mp4",
+              size: 12316939,
             },
           ],
         },
@@ -46,11 +54,10 @@ Deno.test({
 
     for (const test of testcases) {
       const output = await extractor.extract(new URL(test.url));
-
       assertEquals(output.name, test.expect.name);
       assertEquals(output.url, test.expect.url);
 
-      assert(output.streams.length === 3);
+      assert(output.streams.length === 4);
 
       let index = 0;
 
