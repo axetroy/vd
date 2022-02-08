@@ -36,6 +36,10 @@ export default class implements IExtractor {
 
     const info = JSON.parse(matcher[1]) as HaoKanInfo;
 
+    if (!info.curVideoMeta) {
+      throw new Error("无法找到资源");
+    }
+
     const title = info.curVideoMeta.title;
 
     const streams = await Promise.all(info.curVideoMeta.clarityUrl.map((v) => {

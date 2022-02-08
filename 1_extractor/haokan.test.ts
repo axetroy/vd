@@ -14,35 +14,35 @@ Deno.test({
     const testcases: Array<{ url: string; expect: IResource }> = [
       {
         url:
-          "https://haokan.baidu.com/v?vid=18344503110611384639&tab=recommend",
+          "https://haokan.baidu.com/v?vid=10655027474920475618",
         expect: {
-          "name": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜",
+          "name": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸",
           "url":
-            "https://haokan.baidu.com/v?vid=18344503110611384639&tab=recommend",
+            "https://haokan.baidu.com/v?vid=10655027474920475618",
           "streams": [
             {
               "quality": "蓝光",
               "url": "",
-              "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.蓝光.mp4",
-              "size": 175726272,
+              "filename": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸.蓝光.mp4",
+              "size": 29145966,
             },
             {
               "quality": "超清",
               "url": "",
-              "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.超清.mp4",
-              "size": 67848363,
+              "filename": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸.超清.mp4",
+              "size": 15430236,
             },
             {
               "quality": "高清",
               "url": "",
-              "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.高清.mp4",
-              "size": 37915824,
+              "filename": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸.高清.mp4",
+              "size": 9609823,
             },
             {
               "quality": "标清",
               "url": "",
-              "filename": "妈妈咪呀：妈妈带可爱女儿登台，能说会道让金星汗颜.标清.mp4",
-              "size": 34661627,
+              "filename": "坏小子程建军做坏事露出马脚直接被小伙用铁盆砸.标清.mp4",
+              "size": 7597130,
             },
           ],
         },
