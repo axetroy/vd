@@ -8,7 +8,15 @@ export default class implements IExtractor {
   public website = "https://www.xnxx.com";
   public tester = /^https:\/\/www\.xnxx\.com\/video-[a-z0-9]+\/.+$/;
   async extract(url: URL) {
-    const res = await fetch(url);
+    const ac = new AbortController();
+
+    const timer = setTimeout(() => {
+      ac.abort();
+    }, 30 * 1000);
+
+    const res = await fetch(url, { signal: ac.signal });
+
+    clearTimeout(timer);
 
     const html = await res.text();
 
@@ -39,25 +47,26 @@ export default class implements IExtractor {
           url: lowQualityURL,
         },
       ].map((v) => {
-        return fetch(v.url, { method: "HEAD" }).then((res) => {
+        return fetch(v.url, { method: "HEAD" }).then(async (res) => {
           const size = Number(res.headers.get("content-length"));
           const contentType = res.headers.get("content-type") as string;
 
-          return res.body!.cancel()
-            .then(() => {
-              return Promise.resolve({
-                ...v,
-                url: v.url,
-                filename: getVideoName(
-                  title,
-                  v.quality,
-                  getVideoFormatFromMineType(
-                    contentType,
-                  ) || "",
-                ),
-                size,
-              });
-            });
+          if (res.body) {
+            await res.body.cancel();
+          }
+
+          return Promise.resolve({
+            ...v,
+            url: v.url,
+            filename: getVideoName(
+              title,
+              v.quality,
+              getVideoFormatFromMineType(
+                contentType,
+              ) || "",
+            ),
+            size,
+          });
         });
       }),
     );
