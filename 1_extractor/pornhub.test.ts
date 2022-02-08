@@ -1,7 +1,7 @@
 import {
   assert,
   assertEquals,
-} from "https://deno.land/std@0.95.0/testing/asserts.ts";
+} from "https://deno.land/std@0.123.0/testing/asserts.ts";
 import { download } from "../2_download/mod.ts";
 import { IResource } from "../type.ts";
 import ExtractorPornhub from "./pornhub.ts";

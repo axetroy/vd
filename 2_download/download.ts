@@ -1,6 +1,6 @@
-import { ensureDir } from "https://deno.land/std@0.95.0/fs/ensure_dir.ts";
-import * as path from "https://deno.land/std@0.95.0/path/mod.ts";
-import { writeAll } from "https://deno.land/std@0.95.0/io/util.ts";
+import { ensureDir } from "https://deno.land/std@0.123.0/fs/ensure_dir.ts";
+import * as path from "https://deno.land/std@0.123.0/path/mod.ts";
+import { writeAll } from "https://deno.land/std@0.123.0/io/util.ts";
 import { Progress } from "./progress.ts";
 
 export interface DownloadOptions {

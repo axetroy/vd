@@ -1,5 +1,5 @@
-import { exists } from "https://deno.land/std@0.95.0/fs/exists.ts";
-import * as path from "https://deno.land/std@0.95.0/path/mod.ts";
+import { exists } from "https://deno.land/std@0.123.0/fs/exists.ts";
+import * as path from "https://deno.land/std@0.123.0/path/mod.ts";
 import { downloadFile } from "./download.ts";
 
 function getAria2URL() {
