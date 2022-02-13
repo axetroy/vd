@@ -9,13 +9,13 @@ globalThis.addEventListener("message", async (event) => {
   }
 
   const varName = Object.keys(globalThis).filter(
-    (v) => v.indexOf("flashvars_") == 0
+    (v) => v.indexOf("flashvars_") == 0,
   );
 
   const flashVar = globalThis[varName];
 
   const mediaDefinitions = flashVar.mediaDefinitions.find(
-    (v) => v.format === "mp4"
+    (v) => v.format === "mp4",
   );
 
   const ac = new AbortController();
