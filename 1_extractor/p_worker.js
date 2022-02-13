@@ -8,14 +8,14 @@ globalThis.addEventListener("message", async (event) => {
     console.error(err);
   }
 
-  const varName = Object.keys(globalThis).filter((v) =>
-    v.indexOf("flashvars_") == 0
+  const varName = Object.keys(globalThis).filter(
+    (v) => v.indexOf("flashvars_") == 0
   );
 
   const flashVar = globalThis[varName];
 
-  const mediaDefinitions = flashVar.mediaDefinitions.find((v) =>
-    v.format === "mp4"
+  const mediaDefinitions = flashVar.mediaDefinitions.find(
+    (v) => v.format === "mp4"
   );
 
   const ac = new AbortController();
@@ -53,12 +53,14 @@ globalThis.addEventListener("message", async (event) => {
 
   const qualities = await res.json();
 
-  const result = qualities.map((v) => {
-    return {
-      quality: v.quality.replace(/p$/) + "p",
-      url: v.videoUrl,
-    };
-  });
+  const result = qualities
+    .sort((a, b) => a.quality > b.quality)
+    .map((v) => {
+      return {
+        quality: v.quality.replace(/p$/) + "p",
+        url: v.videoUrl,
+      };
+    });
 
   globalThis.postMessage(result);
   self.close();
